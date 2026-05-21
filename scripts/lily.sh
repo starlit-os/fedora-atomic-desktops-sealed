@@ -201,6 +201,7 @@ PACKAGES=(
     winpodx
     podman-compose
     podman-docker
+    libvirt
 )
 
 dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
