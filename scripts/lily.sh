@@ -199,6 +199,8 @@ PACKAGES=(
     vkbasalt
     goverlay
     winpodx
+    podman-compose
+    podman-docker
 )
 
 dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
