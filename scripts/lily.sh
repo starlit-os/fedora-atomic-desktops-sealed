@@ -198,9 +198,11 @@ PACKAGES=(
     tailscale
     vkbasalt
     goverlay
+    winpodx
 )
 
 dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+dnf config-manager addrepo -y --from-repofile=https://download.opensuse.org/repositories/home:/Kernalix7/Fedora_43/home:Kernalix7.repo
 dnf copr -y enable yalter/niri
 dnf copr -y enable jdxcode/mise
 dnf copr -y enable scottames/ghostty
