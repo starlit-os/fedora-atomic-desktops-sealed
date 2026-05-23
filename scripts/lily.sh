@@ -189,10 +189,8 @@ PACKAGES=(
     cava
     vicinae
     zed
-    mate-polkit
     micro
     rsms-inter-fonts
-    ramalama
     https://proton.me/download/PassDesktop/linux/x64/ProtonPass.rpm
     https://proton.me/download/mail/linux/ProtonMail-desktop-beta.rpm
     tailscale
@@ -201,7 +199,6 @@ PACKAGES=(
     winpodx
     podman-compose
     podman-docker
-    libvirt
     vesktop
     https://megapahit.net/downloads/megapahit-26.2.0.55409-Fedora-x86_64.rpm
 )
