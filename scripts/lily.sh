@@ -202,6 +202,7 @@ PACKAGES=(
     podman-compose
     podman-docker
     libvirt
+    vesktop
 )
 
 dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
