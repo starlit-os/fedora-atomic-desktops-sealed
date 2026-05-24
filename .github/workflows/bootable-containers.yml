@@ -65,6 +65,7 @@ jobs:
           registry: ${{ env.REGISTRY_GHCR }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+          auth_file_path: /tmp/storage-run-0/containers/auth.json
 
       - name: "Generate version"
         id: version
