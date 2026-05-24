@@ -107,7 +107,7 @@ jobs:
           extra-args: |
             --skip-unused-stages=false
             --security-opt=label=disable
-            --volume /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}:/run/src
+            --volume ${{ github.workspace }}:/run/src
 
       - name: "Build Generic UKI container image"
         uses: redhat-actions/buildah-build@v2
@@ -124,7 +124,7 @@ jobs:
             TOOLS=quay.io/fedora-atomic-desktops-sealed/tools:${{ matrix.release }}
           extra-args: |
             --security-opt=label=disable
-            --volume /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}:/run/src
+            --volume ${{ github.workspace }}:/run/src
             --secret=id=secureboot_key,src=/tmp/keys/key
             --secret=id=secureboot_crt,src=/tmp/keys/crt
 
@@ -143,7 +143,7 @@ jobs:
             TOOLS=quay.io/fedora-atomic-desktops-sealed/tools:${{ matrix.release }}
           extra-args: |
             --security-opt=label=disable
-            --volume /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}:/run/src
+            --volume ${{ github.workspace }}:/run/src
             --secret=id=secureboot_key,src=/tmp/keys/key
             --secret=id=secureboot_crt,src=/tmp/keys/crt
 
@@ -161,7 +161,7 @@ jobs:
             TOOLS=${{ env.REGISTRY_GHCR }}/${{ env.REPO_NAME }}/tools:${{ matrix.release }}
           extra-args: |
             --security-opt=label=disable
-            --volume /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}:/run/src
+            --volume ${{ github.workspace }}:/run/src
             --secret=id=secureboot_key,src=/tmp/keys/key
             --secret=id=secureboot_crt,src=/tmp/keys/crt
 
@@ -180,7 +180,7 @@ jobs:
             TOOLS=quay.io/fedora-atomic-desktops-sealed/tools:${{ matrix.release }}
           extra-args: |
             --security-opt=label=disable
-            --volume /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}:/run/src
+            --volume ${{ github.workspace }}:/run/src
             --secret=id=secureboot_key,src=/tmp/keys/key
             --secret=id=secureboot_crt,src=/tmp/keys/crt
 
