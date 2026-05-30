@@ -183,7 +183,6 @@ PACKAGES=(
     ghostty-shell-integration
     ghostty-terminfo
     faugus-launcher
-    discord
     noctalia-shell
     wlsunset
     fish
