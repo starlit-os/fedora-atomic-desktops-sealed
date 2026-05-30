@@ -4,6 +4,10 @@
 
 set -euxo pipefail
 
+# Prepare for stuff that installs to /opt
+mkdir -p /var/opt
+ln -sf /var/opt /opt
+
 # use negativo17 for 3rd party packages with higher priority than default
 if ! grep -q fedora-multimedia <(dnf5 repolist); then
     # Enable or Install Repofile
