@@ -169,7 +169,6 @@ REMOVE_PACKAGES=(
 )
 dnf remove -y "${REMOVE_PACKAGES[@]}"
 
-
 PACKAGES=(
     pam-u2f
     pamu2fcfg
@@ -196,11 +195,13 @@ PACKAGES=(
     tailscale
     vkbasalt
     goverlay
+    libvirt
     winpodx
     podman-compose
     podman-docker
     vesktop
     https://megapahit.net/downloads/megapahit-26.2.0.55409-Fedora-x86_64.rpm
+    https://app.warp.dev/download?package=rpm
 )
 
 dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
@@ -216,6 +217,14 @@ dnf copr -y disable jdxcode/mise
 dnf copr -y disable scottames/ghostty
 dnf copr -y disable quadratech188/vicinae
 dnf copr -y disable faugus/faugus-launcher
+
+# Move opt stuff
+mkdir -p /usr/share/factory/var
+mv /var/opt /usr/share/factory/var/opt
+cat > "/usr/lib/tmpfiles.d/opt.conf" << 'EOF'
+C+    /var/opt        -    -    -    -
+EOF
+
 
 # Install Pangolin CLI
 curl -o /tmp/pangolin-cli.sh -fsSL https://static.pangolin.net/get-cli.sh
