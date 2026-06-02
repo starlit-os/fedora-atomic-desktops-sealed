@@ -205,6 +205,7 @@ PACKAGES=(
     vesktop
     https://megapahit.net/downloads/megapahit-26.2.0.55409-Fedora-x86_64.rpm
     https://app.warp.dev/download?package=rpm
+    oz-stable
 )
 
 dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
