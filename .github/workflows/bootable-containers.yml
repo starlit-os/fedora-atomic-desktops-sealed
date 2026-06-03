@@ -52,11 +52,23 @@ jobs:
       - name: "Checkout repo"
         uses: actions/checkout@v6
 
-      - name: "Runner setup"
-        uses: travier/bootc-dev-actions/bootc-ubuntu-setup@main
-
       - name: "Blacksmith workaround"
         run: mkdir $HOME/.docker
+
+      - name: Remove unwanted software
+        uses: ublue-os/remove-unwanted-software@cc0becac701cf642c8f0a6613bbdaf5dc36b259e # v9
+
+      - name: Mount BTRFS for podman storage
+        id: container-storage
+        uses: ublue-os/container-storage-action@dc1f4c8f17b672069e921f001132f7cf98a423a6
+        continue-on-error: true
+        with:
+          target-dir: /var/lib/containers
+          mount-opts: compress-force=zstd:2
+          loopback-free: "1"
+
+      - name: "Runner setup"
+        uses: travier/bootc-dev-actions/bootc-ubuntu-setup@main
 
       - name: "Login to Container Registry (ghcr.io)"
         uses: redhat-actions/podman-login@v1
